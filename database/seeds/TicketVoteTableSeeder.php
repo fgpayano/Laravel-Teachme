@@ -1,28 +1,27 @@
 <?php
 
-use App\Entities\Ticket;
+use App\Entities\TicketVote;
 use Faker\Factory as Faker;
 use Faker\Generator;
 
-class TicketTableSeeder extends BaseSeeder {
+class TicketVoteTableSeeder extends BaseSeeder {
 
 	public function getModel()
 	{
-		return new Ticket();
+		return new TicketVote();
 	}
 
 	public function getDummyData(Generator $faker)
 	{
 		return [	
-			"title" => $faker->sentence(),
-			"status" => $faker->randomElement(["open", "closed"]),
+			"ticket_id" => $this->getRandomId("Ticket"),
 			"user_id" => $this->getRandomId("User")
 		];
 	}
 
 	public function run ()
 	{
-		$this->createMultiple(500);
+		$this->createMultiple(20);
 	}
 
 }

@@ -4,6 +4,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class TicketVote extends Model {
 
-	//
+	protected $fillable = ['user_id', 'ticket_id'];
 
 }
