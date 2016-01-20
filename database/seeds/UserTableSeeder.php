@@ -20,13 +20,6 @@ class UserTableSeeder extends BaseSeeder {
 		];
 	}
 
-	public function run()
-	{
-		$this->createAdmin();
-		
-		$this->createMultiple(100);
-	}
-
 	private function createAdmin()
 	{
 		$this->create([
@@ -35,4 +28,4 @@ class UserTableSeeder extends BaseSeeder {
 			"password" => bcrypt("123456")
 		]);
 	}
-}
+}	

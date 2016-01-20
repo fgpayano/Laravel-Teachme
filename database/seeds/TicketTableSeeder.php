@@ -6,6 +6,8 @@ use Faker\Generator;
 
 class TicketTableSeeder extends BaseSeeder {
 
+	protected $total = 100;
+
 	public function getModel()
 	{
 		return new Ticket();
@@ -19,10 +21,4 @@ class TicketTableSeeder extends BaseSeeder {
 			"user_id" => $this->getRandomId("User")
 		];
 	}
-
-	public function run ()
-	{
-		$this->createMultiple(500);
-	}
-
 }

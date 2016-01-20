@@ -6,7 +6,9 @@ use illuminate\DataBase\Seeder;
 use Illuminate\Support\Collection;
 
 abstract class BaseSeeder extends Seeder{
-		
+	
+	protected $total = 100;
+
 	protected static $pool = array();
 
 	protected function createMultiple($total, array $customValues = array())
@@ -67,4 +69,11 @@ abstract class BaseSeeder extends Seeder{
 	{
 		return isset(static::$pool[$class]);
 	}
+
+
+	public function run()
+	{
+		$this->createMultiple($this->total);
+	}
+
 }

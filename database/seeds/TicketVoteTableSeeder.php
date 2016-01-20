@@ -18,10 +18,4 @@ class TicketVoteTableSeeder extends BaseSeeder {
 			"user_id" => $this->getRandomId("User")
 		];
 	}
-
-	public function run ()
-	{
-		$this->createMultiple(20);
-	}
-
 }
