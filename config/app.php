@@ -139,7 +139,8 @@ return [
 		/*
 		 * Vendor Service Providers...
 		 */
-		'Collective\Html\HtmlServiceProvider',
+		//'Collective\Html\HtmlServiceProvider',
+
 
 		/*
 		 * Application Service Providers...
@@ -149,7 +150,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-
+		'App\Providers\HtmlServiceProvider'
 	],
 
 	/*
