@@ -6,7 +6,7 @@ use Collective\Html\HtmlServiceProvider as CollectiveHtmlServiceProvider;
 
 use App\Components\HtmlBuilder;
 
-class HtmlServiceProvider extends CollectiveHtmlServiceProvider{
+class HtmlServiceProvider extends CollectiveHtmlServiceProvider {
 
 	/**
 	 * Register the HTML builder instance.
@@ -17,7 +17,7 @@ class HtmlServiceProvider extends CollectiveHtmlServiceProvider{
 	{
 		$this->app->bindShared('html', function($app)
 		{
-			return new HtmlBuilder($app['url']);
+			return new HtmlBuilder($app['url'], $app['view'], $app['config']);
 		});
 	}
 
