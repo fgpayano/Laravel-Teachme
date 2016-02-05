@@ -14,7 +14,7 @@ class HtmlBuilder extends CollectiveHtmlBuilder{
 	private $config;
 
 	protected $url;
-
+ 	
 	public function __construct(UrlGenerator $url, View $view, Config $config)
 	{	
 		$this->view = $view;

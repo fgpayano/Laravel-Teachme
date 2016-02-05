@@ -6,7 +6,7 @@ use Collective\Html\HtmlServiceProvider as CollectiveHtmlServiceProvider;
 
 use App\Components\HtmlBuilder;
 
-class HtmlServiceProvider extends CollectiveHtmlServiceProvider {
+class HtmlServiceProvider extends CollectiveHtmlServiceProvider 	{
 
 	/**
 	 * Register the HTML builder instance.
