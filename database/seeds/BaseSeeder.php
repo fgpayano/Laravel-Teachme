@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 
 abstract class BaseSeeder extends Seeder{
 	
-	protected $total = 100;
+	protected $total = 500;
 
 	protected static $pool = array();
 

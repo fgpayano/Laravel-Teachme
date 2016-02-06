@@ -1,1 +1,1 @@
-<span class="label label-info absolute highlight">{{ $ticket->status }}</span>
+<span class="label label-info absolute highlight">{{ trans("tickets.status.".$ticket->status) }}</span>
