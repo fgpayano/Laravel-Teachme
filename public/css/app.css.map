@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.sass"],"names":[],"mappings":"AAEA;EACE,YAAY,EAAG;;AAEjB;EACC,iBAAiB;EACjB,cAPU,EAOO;;AAElB;EACC,aAVU,EAUM;;AAEjB;EACC,YAAY,EAAG","file":"app.css","sourcesContent":["$size: 20px;\n\n#main {\n  color: blue; }\n\nbody {\n\tbackground: blue;\n\tpadding: $size; }\n\ndiv.article {\n\tmargin: $size; }\n\np {\n\tcolor: #ddd; }\n"],"sourceRoot":"/source/"}

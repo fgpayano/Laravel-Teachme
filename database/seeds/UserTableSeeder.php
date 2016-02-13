@@ -6,6 +6,11 @@ use Faker\Generator;
 
 class UserTableSeeder extends BaseSeeder {
 
+	public function __construct()
+	{
+		$this->createAdmin();
+	}
+
 	public function getModel()
 	{
 		return new User();

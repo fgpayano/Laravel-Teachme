@@ -1,6 +1,7 @@
 <?php namespace App\Entities;
 
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Guard;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
@@ -37,6 +38,27 @@ class User extends Entity implements AuthenticatableContract, CanResetPasswordCo
 
 	public function voted()
 	{
-		$this->belongsToMany(Ticket::getClass(), 'ticket_votes');
+		if ( ! $auth->check()) return false;	
+
+		return $this->belongsToMany(Ticket::getClass(), 'ticket_votes')->withTimestamps();
+	}
+
+	public function hasVoted(Ticket $ticket)
+	{
+		return $this->voted()->where('ticket_id', $ticket->id)->count();
+	}
+
+	public function vote(Ticket $ticket)
+	{
+		if ($this->hasVoted($ticket)) return false;
+
+		$this->voted()->attach($ticket);
+
+		return true;
+	}
+
+	public function unvote(Ticket $ticket)
+	{
+		$this->voted()->detach($ticket);
 	}
 }

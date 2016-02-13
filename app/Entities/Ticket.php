@@ -1,4 +1,6 @@
-<?php namespace App\Entities;
+<?php 
+
+namespace App\Entities;
 
 class Ticket extends Entity {
 
@@ -6,7 +8,7 @@ class Ticket extends Entity {
 	
 	public function author()
 	{
-		return $this->belongsTo(User::getClass());
+		return $this->belongsTo(User::getClass(), 'user_id');
 	}
 
 	public function comments()
@@ -16,7 +18,7 @@ class Ticket extends Entity {
 
 	public function voters()
 	{
-		return $this->belongsToMany(User::getClass(), 'ticket_votes');
+		return $this->belongsToMany(User::getClass(), 'ticket_votes')->withTimestamps();
 	}
 
 	public function getOpenAttribute()
