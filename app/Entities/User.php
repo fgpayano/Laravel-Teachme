@@ -31,6 +31,8 @@ class User extends Entity implements AuthenticatableContract, CanResetPasswordCo
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	public $auth = null;
+
 	public function tickets()
 	{
 		return $this->hasMany(Ticket::getClass());
@@ -38,8 +40,6 @@ class User extends Entity implements AuthenticatableContract, CanResetPasswordCo
 
 	public function voted()
 	{
-		if ( ! $auth->check()) return false;	
-
 		return $this->belongsToMany(Ticket::getClass(), 'ticket_votes')->withTimestamps();
 	}
 

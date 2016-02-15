@@ -40,20 +40,26 @@
             @endif
 
             <h3>Nuevo Comentario</h3>
+             @include('partials/errors')
+                
+            @if(Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
 
-         {!! Form::open(['route' => ['comments.submit', $ticket->id], 'method' => 'POST']) !!}
-
-          <div class="form-group">
+             {!! Form::open(['route' => ['comments.submit', $ticket->id], 'method' => 'POST']) !!}
+                <div class="form-group">
                     <label for="comment">Comentarios:</label>
-                    <textarea rows="4" class="form-control" name="comment" cols="50" id="comment"></textarea>
+                    <textarea rows="4" class="form-control" name="comment" cols="50" id="comment">{{ old('comment') }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="link">Enlace:</label>
-                    <input class="form-control" name="link" type="text" id="link">
+                    <label for="website">Enlace:</label>
+                    <input class="form-control" name="website" type="text" id="website" value="{{ old('website') }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar comentario</button>
-            </form>
             {!! Form::close() !!}
+        
             <h3>Comentarios ({{ $ticket->comments()->count() }})</h3>
             @foreach($ticket->comments as $comment)
                 <div class="well well-sm">

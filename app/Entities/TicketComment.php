@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TicketComment extends Entity {
 
-	protected $fillable = ['website', 'comment', 'user_id', 'ticket_id'];
+	protected $fillable = ['comment', 'website', 'ticket_id', 'user_id'];
 
 	public function ticket()
 	{
